@@ -1,0 +1,56 @@
+import {StyleSheet} from 'react-native';
+
+export default StyleSheet.create({
+  rightBarContainer: {
+    position: 'absolute',
+    padding: 10,
+    right: 5,
+    top: '30%',
+    bottom: '30%',
+    zIndex: 99,
+    flex: 1,
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  userImgContainer: {
+    width: 40,
+    height: 40,
+    borderRadius: 25,
+    marginTop: 10,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: '#555',
+  },
+  userImg: {
+    width: 40,
+    height: 40,
+    borderRadius: 25,
+  },
+  userImgPlusIcon: {
+    top: -10,
+    width: 20,
+    height: 20,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    borderRadius: 25,
+    backgroundColor: '#f00',
+  },
+  IconContainer: {
+    marginTop: 10,
+    marginBottom: 10,
+    maxHeight: 70,
+    flex: 1,
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  iconText: {
+    marginTop: 10,
+    fontWeight: 'bold',
+    color: '#fff',
+  },
+});
