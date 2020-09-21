@@ -2,9 +2,7 @@ import React from 'react';
 import {Dimensions, FlatList, View, StyleSheet} from 'react-native';
 
 import TopBar from '../../components/Video/TopBar/TopBar';
-import RightBar from '../../components/Video/RightBar/RightBar';
 import BackgroundVideo from '../../components/Video/BackgroundVideo/BackgroundVideo';
-import VideoDescription from '../../components/Video/VideoDescription/VideoDescription';
 import BottomTabNavigator from '../../components/BottomTabNavigator/BottomTabNavigator';
 
 const videos = [
