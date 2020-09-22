@@ -12,6 +12,23 @@ const videos = [
 ];
 
 function Home({navigation}) {
+  const videosRef = {};
+
+  const _onViewableItemsChanged = (props) => {
+    const changed = props.changed;
+    changed.forEach((item) => {
+      const video = videosRef[item.key];
+      if (video) {
+        console.log(video.props);
+        if (item.isViewable) {
+          video.props.play();
+        } else {
+          video.props.pause();
+        }
+      }
+    });
+  };
+
   return (
     <View style={styles.mainContainer}>
       <TopBar />
@@ -20,10 +37,19 @@ function Home({navigation}) {
         snapToInterval={Dimensions.get('window').height}
         decelerationRate="fast"
         pagingEnabled
+        onViewableItemsChanged={_onViewableItemsChanged}
         initialNumToRender={1}
+        windowSize={5}
         data={videos}
         keyExtractor={(videoUrl) => videoUrl}
-        renderItem={({item}) => <BackgroundVideo videoUrl={item} />}
+        renderItem={({item}) => (
+          <BackgroundVideo
+            ref={(ref) => {
+              videosRef[item] = ref;
+            }}
+            videoUrl={item}
+          />
+        )}
       />
       <BottomTabNavigator
         background="transparent"

@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {forwardRef, useState} from 'react';
 import {TouchableWithoutFeedback} from 'react-native';
 import Video from 'react-native-video';
 import styles from './styles';
@@ -8,8 +8,16 @@ import {faPlay} from '@fortawesome/free-solid-svg-icons';
 import RightBar from '../RightBar/RightBar';
 import VideoDescription from '../VideoDescription/VideoDescription';
 
-function BackgroundVideo({videoUrl}) {
-  const [paused, setPaused] = useState(false);
+const BackgroundVideo = forwardRef(({videoUrl}, ref) => {
+  const [paused, setPaused] = useState(true);
+
+  const play = () => {
+    setPaused(false);
+  };
+
+  const pause = () => {
+    setPaused(true);
+  };
 
   return (
     <>
@@ -24,11 +32,14 @@ function BackgroundVideo({videoUrl}) {
         </TouchableWithoutFeedback>
       )}
       <Video
+        ref={ref}
+        play={play}
+        pause={pause}
         source={{
           uri: videoUrl,
         }}
         paused={paused}
-        onTouchEnd={() => setPaused(!paused)}
+        onTouchStart={() => setPaused(!paused)}
         style={styles.videoStyle}
         resizeMode="cover"
         repeat
@@ -37,6 +48,6 @@ function BackgroundVideo({videoUrl}) {
       <VideoDescription itemName="Nike" description="Nike" />
     </>
   );
-}
+});
 
 export default BackgroundVideo;

@@ -40,7 +40,7 @@ function BottomTabNavigator({navigation, background, colorTitle, colorIcon}) {
         icon={faUser}
         colorIcon={colorIcon}
         colorTitle={colorTitle}
-        title="User"
+        title="Profile"
         navigation={navigation}
       />
     </View>
