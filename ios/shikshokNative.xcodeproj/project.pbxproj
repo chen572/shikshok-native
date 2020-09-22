@@ -20,6 +20,14 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		AFAB62EC3EB024A3BBCD5F6B /* libPods-shikshokNative-shikshokNativeTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 9B36EA7708B67F8EB7C3D117 /* libPods-shikshokNative-shikshokNativeTests.a */; };
 		E11BDF40BBAF0F3BE7BB0CA6 /* libPods-shikshokNative-tvOSTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 7FEA24DD9F855C657379188D /* libPods-shikshokNative-tvOSTests.a */; };
+		EAD5FD1B251A97DD005E0133 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD5FD1A251A97DD005E0133 /* Bolts.framework */; };
+		EAD5FD1C251A97DD005E0133 /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD5FD1A251A97DD005E0133 /* Bolts.framework */; };
+		EAD5FD20251A97FA005E0133 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD5FD1D251A97F9005E0133 /* FBSDKShareKit.framework */; };
+		EAD5FD21251A97FA005E0133 /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD5FD1D251A97F9005E0133 /* FBSDKShareKit.framework */; };
+		EAD5FD22251A97FA005E0133 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD5FD1E251A97FA005E0133 /* FBSDKCoreKit.framework */; };
+		EAD5FD23251A97FA005E0133 /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD5FD1E251A97FA005E0133 /* FBSDKCoreKit.framework */; };
+		EAD5FD24251A97FA005E0133 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD5FD1F251A97FA005E0133 /* FBSDKLoginKit.framework */; };
+		EAD5FD25251A97FA005E0133 /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EAD5FD1F251A97FA005E0133 /* FBSDKLoginKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +73,10 @@
 		B5F6E455065EF6F43304F3D7 /* Pods-shikshokNative-tvOS.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shikshokNative-tvOS.release.xcconfig"; path = "Target Support Files/Pods-shikshokNative-tvOS/Pods-shikshokNative-tvOS.release.xcconfig"; sourceTree = "<group>"; };
 		D96D0F3F3874720AA353D8F1 /* Pods-shikshokNative-tvOSTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shikshokNative-tvOSTests.debug.xcconfig"; path = "Target Support Files/Pods-shikshokNative-tvOSTests/Pods-shikshokNative-tvOSTests.debug.xcconfig"; sourceTree = "<group>"; };
 		E9E0793D1D7CB51B0D46D0C3 /* Pods-shikshokNative-shikshokNativeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-shikshokNative-shikshokNativeTests.release.xcconfig"; path = "Target Support Files/Pods-shikshokNative-shikshokNativeTests/Pods-shikshokNative-shikshokNativeTests.release.xcconfig"; sourceTree = "<group>"; };
+		EAD5FD1A251A97DD005E0133 /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		EAD5FD1D251A97F9005E0133 /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		EAD5FD1E251A97FA005E0133 /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		EAD5FD1F251A97FA005E0133 /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		ED2971642150620600B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = Platforms/AppleTVOS.platform/Developer/SDKs/AppleTVOS12.0.sdk/System/Library/Frameworks/JavaScriptCore.framework; sourceTree = DEVELOPER_DIR; };
 /* End PBXFileReference section */
@@ -75,6 +87,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				AFAB62EC3EB024A3BBCD5F6B /* libPods-shikshokNative-shikshokNativeTests.a in Frameworks */,
+				EAD5FD23251A97FA005E0133 /* FBSDKCoreKit.framework in Frameworks */,
+				EAD5FD25251A97FA005E0133 /* FBSDKLoginKit.framework in Frameworks */,
+				EAD5FD1C251A97DD005E0133 /* Bolts.framework in Frameworks */,
+				EAD5FD21251A97FA005E0133 /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -83,6 +99,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				60BAD95529DA2CEA03B65770 /* libPods-shikshokNative.a in Frameworks */,
+				EAD5FD22251A97FA005E0133 /* FBSDKCoreKit.framework in Frameworks */,
+				EAD5FD24251A97FA005E0133 /* FBSDKLoginKit.framework in Frameworks */,
+				EAD5FD1B251A97DD005E0133 /* Bolts.framework in Frameworks */,
+				EAD5FD20251A97FA005E0133 /* FBSDKShareKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,7 +162,11 @@
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
 				67BA4D2DB3890E0B222B08B8 /* libPods-shikshokNative.a */,
+				EAD5FD1E251A97FA005E0133 /* FBSDKCoreKit.framework */,
+				EAD5FD1F251A97FA005E0133 /* FBSDKLoginKit.framework */,
+				EAD5FD1D251A97F9005E0133 /* FBSDKShareKit.framework */,
 				9B36EA7708B67F8EB7C3D117 /* libPods-shikshokNative-shikshokNativeTests.a */,
+				EAD5FD1A251A97DD005E0133 /* Bolts.framework */,
 				9E49CE500148A277DC7A9870 /* libPods-shikshokNative-tvOS.a */,
 				7FEA24DD9F855C657379188D /* libPods-shikshokNative-tvOSTests.a */,
 			);
@@ -611,6 +635,10 @@
 			baseConfigurationReference = 511931122C8B1D39AD744A84 /* Pods-shikshokNative-shikshokNativeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
@@ -635,6 +663,11 @@
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = /Users/chen572/Documents/FacebookSDK;
 				INFOPLIST_FILE = shikshokNativeTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -658,6 +691,10 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 779X6Z7U7A;
 				ENABLE_BITCODE = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = shikshokNative/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (
@@ -681,6 +718,11 @@
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 779X6Z7U7A;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
+				"FRAMEWORK_SEARCH_PATHS[arch=*]" = /Users/chen572/Documents/FacebookSDK;
 				INFOPLIST_FILE = shikshokNative/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				OTHER_LDFLAGS = (

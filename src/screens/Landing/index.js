@@ -1,8 +1,9 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
 import styles from './styles';
+// import {LoginButton} from 'react-native-fbsdk';
 
-function Landing() {
+function Landing({navigation}) {
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.titleStyle}>WOW.</Text>
@@ -11,7 +12,23 @@ function Landing() {
           <Text style={styles.textStyle}>Get started with</Text>
           <View style={styles.socalLoginButtonsContainer}>
             <TouchableOpacity
+              onPress={() => navigation.navigate('Home')}
               style={[styles.loginSocialButton, styles.facebook]}>
+              {/* <LoginButton
+                publishPermissions={['email']}
+                onLoginFinished={(error, result) => {
+                  if (error) {
+                    console.log('Login failed with error: ' + error.message);
+                  } else if (result.isCancelled) {
+                    console.log('Login was cancelled');
+                  } else {
+                    console.log(
+                      'Login was successful with permissions: ' + result,
+                    );
+                  }
+                }}
+                onLogoutFinished={() => console.log('User logged out')}
+              /> */}
               <Image
                 style={styles.facebookIconStyle}
                 source={{
@@ -22,7 +39,9 @@ function Landing() {
                 }}
               />
             </TouchableOpacity>
-            <TouchableOpacity style={[styles.loginSocialButton, styles.google]}>
+            <TouchableOpacity
+              onPress={() => navigation.navigate('Home')}
+              style={[styles.loginSocialButton, styles.google]}>
               <Image
                 style={styles.googleIconStyle}
                 source={{
@@ -34,6 +53,7 @@ function Landing() {
               />
             </TouchableOpacity>
             <TouchableOpacity
+              onPress={() => navigation.navigate('Home')}
               style={[styles.loginSocialButton, styles.instagram]}>
               <Image
                 style={styles.instagramIconStyle}
@@ -49,10 +69,14 @@ function Landing() {
         </View>
         <View style={styles.loginButtonContainer}>
           <Text style={styles.textStyle}>Or sign up with</Text>
-          <TouchableOpacity style={styles.loginButtons}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Home')}
+            style={styles.loginButtons}>
             <Text style={styles.loginTextStyle}>Email</Text>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.loginButtons}>
+          <TouchableOpacity
+            onPress={() => navigation.navigate('Home')}
+            style={styles.loginButtons}>
             <Text style={styles.loginTextStyle}>Phone</Text>
           </TouchableOpacity>
         </View>
