@@ -1,11 +1,15 @@
-import React, {useEffect} from 'react';
-import {View, Text, TouchableOpacity, Image, Dimensions} from 'react-native';
+import React from 'react';
+import {View, Text, TouchableOpacity, Image} from 'react-native';
 import styles from './styles';
-import FBSDK, {LoginManager} from 'react-native-fbsdk';
+import {LoginManager} from 'react-native-fbsdk';
+import {GoogleSignin} from '@react-native-community/google-signin';
+
+GoogleSignin.configure({
+  iosClientId:
+    '267951812755-b88c0rc4s875hmrdeemh6v8hhg40pnom.apps.googleusercontent.com',
+});
 
 function Landing({navigation}) {
-  console.log(Dimensions.get('window').width);
-  //375
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.titleStyle}>WOW.</Text>
@@ -20,8 +24,10 @@ function Landing({navigation}) {
                     function (result) {
                       if (result.isCancelled) {
                         console.log('Login was cancelled');
+                        navigation.navigate('Home');
                       } else {
                         console.log(result.grantedPermissions);
+                        navigation.navigate('Home');
                       }
                     },
                     function (error) {
@@ -45,7 +51,18 @@ function Landing({navigation}) {
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Home')}
+              onPress={async () => {
+                await GoogleSignin.hasPlayServices();
+                GoogleSignin.signIn()
+                  .then((d) => {
+                    console.log(d);
+                    navigation.navigate('Home');
+                  })
+                  .catch((e) => {
+                    console.log(e);
+                    navigation.navigate('Home');
+                  });
+              }}
               style={[styles.loginSocialButton, styles.google]}>
               <Image
                 style={styles.googleIconStyle}
