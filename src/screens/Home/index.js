@@ -19,7 +19,6 @@ function Home({navigation}) {
     changed.forEach((item) => {
       const video = videosRef[item.key];
       if (video) {
-        console.log(video.props);
         if (item.isViewable) {
           video.props.play();
         } else {

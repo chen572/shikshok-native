@@ -1,7 +1,13 @@
 import React from 'react';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
 import styles from './styles';
-// import {LoginButton} from 'react-native-fbsdk';
+import {LoginManager} from 'react-native-fbsdk';
+import {GoogleSignin} from '@react-native-community/google-signin';
+
+GoogleSignin.configure({
+  iosClientId:
+    '267951812755-b88c0rc4s875hmrdeemh6v8hhg40pnom.apps.googleusercontent.com',
+});
 
 function Landing({navigation}) {
   return (
@@ -12,23 +18,28 @@ function Landing({navigation}) {
           <Text style={styles.textStyle}>Get started with</Text>
           <View style={styles.socalLoginButtonsContainer}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Home')}
+              onPress={async () => {
+                try {
+                  await LoginManager.logInWithPermissions(['email']).then(
+                    function (result) {
+                      if (result.isCancelled) {
+                        console.log('Login was cancelled');
+                        navigation.navigate('Home');
+                      } else {
+                        console.log(result.grantedPermissions);
+                        navigation.navigate('Home');
+                      }
+                    },
+                    function (error) {
+                      console.log('Login failed with error: ' + error);
+                    },
+                  );
+                } catch (e) {
+                  console.log(e);
+                  navigation.navigate('Home');
+                }
+              }}
               style={[styles.loginSocialButton, styles.facebook]}>
-              {/* <LoginButton
-                publishPermissions={['email']}
-                onLoginFinished={(error, result) => {
-                  if (error) {
-                    console.log('Login failed with error: ' + error.message);
-                  } else if (result.isCancelled) {
-                    console.log('Login was cancelled');
-                  } else {
-                    console.log(
-                      'Login was successful with permissions: ' + result,
-                    );
-                  }
-                }}
-                onLogoutFinished={() => console.log('User logged out')}
-              /> */}
               <Image
                 style={styles.facebookIconStyle}
                 source={{
@@ -40,7 +51,18 @@ function Landing({navigation}) {
               />
             </TouchableOpacity>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Home')}
+              onPress={async () => {
+                await GoogleSignin.hasPlayServices();
+                GoogleSignin.signIn()
+                  .then((d) => {
+                    console.log(d);
+                    navigation.navigate('Home');
+                  })
+                  .catch((e) => {
+                    console.log(e);
+                    navigation.navigate('Home');
+                  });
+              }}
               style={[styles.loginSocialButton, styles.google]}>
               <Image
                 style={styles.googleIconStyle}
