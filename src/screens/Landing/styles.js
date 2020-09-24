@@ -1,4 +1,5 @@
-import {StyleSheet} from 'react-native';
+import {StyleSheet, Dimensions} from 'react-native';
+const isBigScreen = Dimensions.get('window').width >= 400;
 
 export default StyleSheet.create({
   mainContainer: {
@@ -7,7 +8,8 @@ export default StyleSheet.create({
     alignItems: 'center',
   },
   titleStyle: {
-    fontSize: 70,
+    alignSelf: 'center',
+    fontSize: isBigScreen ? 85 : 70,
     fontWeight: 'bold',
   },
   socialLoginContainer: {
@@ -32,6 +34,8 @@ export default StyleSheet.create({
     height: 170,
   },
   loginSocialButton: {
+    marginLeft: isBigScreen ? 0 : 30,
+    marginRight: isBigScreen >= 400 ? 10 : 5,
     width: 90,
     height: 75,
     borderRadius: 12,

@@ -1,9 +1,11 @@
-import React from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import React, {useEffect} from 'react';
+import {View, Text, TouchableOpacity, Image, Dimensions} from 'react-native';
 import styles from './styles';
-// import {LoginButton} from 'react-native-fbsdk';
+import FBSDK, {LoginManager} from 'react-native-fbsdk';
 
 function Landing({navigation}) {
+  console.log(Dimensions.get('window').width);
+  //375
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.titleStyle}>WOW.</Text>
@@ -12,23 +14,26 @@ function Landing({navigation}) {
           <Text style={styles.textStyle}>Get started with</Text>
           <View style={styles.socalLoginButtonsContainer}>
             <TouchableOpacity
-              onPress={() => navigation.navigate('Home')}
+              onPress={async () => {
+                try {
+                  await LoginManager.logInWithPermissions(['email']).then(
+                    function (result) {
+                      if (result.isCancelled) {
+                        console.log('Login was cancelled');
+                      } else {
+                        console.log(result.grantedPermissions);
+                      }
+                    },
+                    function (error) {
+                      console.log('Login failed with error: ' + error);
+                    },
+                  );
+                } catch (e) {
+                  console.log(e);
+                  navigation.navigate('Home');
+                }
+              }}
               style={[styles.loginSocialButton, styles.facebook]}>
-              {/* <LoginButton
-                publishPermissions={['email']}
-                onLoginFinished={(error, result) => {
-                  if (error) {
-                    console.log('Login failed with error: ' + error.message);
-                  } else if (result.isCancelled) {
-                    console.log('Login was cancelled');
-                  } else {
-                    console.log(
-                      'Login was successful with permissions: ' + result,
-                    );
-                  }
-                }}
-                onLogoutFinished={() => console.log('User logged out')}
-              /> */}
               <Image
                 style={styles.facebookIconStyle}
                 source={{
