@@ -1,19 +1,16 @@
-import React, {useState} from 'react';
-import {View, Text, TouchableOpacity, Image} from 'react-native';
+import React from 'react';
+import { View, Text, TouchableOpacity, Image } from 'react-native';
 import styles from './styles';
-import {LoginManager} from 'react-native-fbsdk';
-import {GoogleSignin} from '@react-native-community/google-signin';
-import LoginWithEmail from '../../components/Landing/LoginWithEmail';
+import { LoginManager } from 'react-native-fbsdk';
+import { GoogleSignin } from '@react-native-community/google-signin';
+import LoginWithOTP from '../../components/Landing/LoginWithOTP';
+import { GOOGLE_IOS_CLIENT_ID } from '@env';
 
 GoogleSignin.configure({
-  iosClientId:
-    '267951812755-b88c0rc4s875hmrdeemh6v8hhg40pnom.apps.googleusercontent.com',
+  iosClientId: GOOGLE_IOS_CLIENT_ID,
 });
 
-function Landing({navigation}) {
-  const [showEmailInput, setShowEmailInput] = useState(false);
-  const [showPhoneInput, setShowPhoneInput] = useState(false);
-
+function Landing({ navigation }) {
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.titleStyle}>WOW.</Text>
@@ -95,17 +92,8 @@ function Landing({navigation}) {
         </View>
         <View style={styles.loginButtonContainer}>
           <Text style={styles.textStyle}>Or sign up with</Text>
-          <LoginWithEmail
-            navigation={navigation}
-            style={styles}
-            text="Email"
-            showInput={showPhoneInput}
-          />
-          <TouchableOpacity
-            onPress={() => setShowPhoneInput(true)}
-            style={styles.loginButtons}>
-            <Text style={styles.loginTextStyle}>Phone</Text>
-          </TouchableOpacity>
+          <LoginWithOTP navigation={navigation} style={styles} type="Email" />
+          <LoginWithOTP navigation={navigation} style={styles} type="SMS" />
         </View>
       </View>
     </View>

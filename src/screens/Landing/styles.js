@@ -1,4 +1,4 @@
-import {StyleSheet, Dimensions} from 'react-native';
+import { StyleSheet, Dimensions } from 'react-native';
 const isBigScreen = Dimensions.get('window').width >= 400;
 
 export default StyleSheet.create({
@@ -32,6 +32,7 @@ export default StyleSheet.create({
     alignItems: 'flex-start',
     width: 300,
     height: 170,
+    marginTop: isBigScreen ? 50 : 0,
   },
   loginSocialButton: {
     marginLeft: isBigScreen ? 0 : 30,
@@ -41,7 +42,7 @@ export default StyleSheet.create({
     borderRadius: 12,
     backgroundColor: 'red',
     shadowColor: '#000',
-    shadowOffset: {width: 2, height: 5},
+    shadowOffset: { width: 2, height: 5 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
     elevation: 1,
@@ -81,7 +82,7 @@ export default StyleSheet.create({
     marginLeft: 9,
     marginTop: 10,
     shadowColor: '#000',
-    shadowOffset: {width: 2, height: 5},
+    shadowOffset: { width: 2, height: 5 },
     shadowOpacity: 0.1,
     shadowRadius: 2,
     elevation: 1,

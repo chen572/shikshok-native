@@ -1,21 +1,31 @@
 import React from 'react';
-import {TextInput, View, Text, StyleSheet} from 'react-native';
+import { TextInput, View, StyleSheet } from 'react-native';
+import { Card } from './Card';
 
-function Input({label, value, onChangeText, placeholder, secureTextEntry}) {
-  const {inputStyle, labelStyle, containerStyle} = styles;
+function Input({
+  label,
+  value,
+  onChangeText,
+  placeholder,
+  secureTextEntry,
+  keyboardType,
+}) {
+  const { inputStyle, containerStyle } = styles;
   return (
-    <View style={containerStyle}>
-      <Text style={labelStyle}>{label}</Text>
-      <TextInput
-        secureTextEntry={secureTextEntry}
-        autoCorrect={false}
-        autoCapitalize="none"
-        placeholder={placeholder}
-        // value={value}
-        onChangeText={onChangeText}
-        style={inputStyle}
-      />
-    </View>
+    <Card>
+      <View style={containerStyle}>
+        <TextInput
+          secureTextEntry={secureTextEntry}
+          autoCorrect={false}
+          autoCapitalize="none"
+          placeholder={placeholder}
+          // value={value}
+          onChangeText={onChangeText}
+          style={inputStyle}
+          keyboardType={keyboardType}
+        />
+      </View>
+    </Card>
   );
 }
 
@@ -26,19 +36,12 @@ const styles = StyleSheet.create({
     paddingLeft: 5,
     lineHeight: 23,
     fontSize: 18,
-    flex: 3,
-  },
-  labelStyle: {
-    fontSize: 18,
-    paddingLeft: 20,
     flex: 1,
   },
   containerStyle: {
-    height: 40,
-    flex: 1,
-    flexDirection: 'row',
-    alignItems: 'center',
+    height: 50,
+    width: '100%',
   },
 });
 
-export {Input};
+export { Input };
