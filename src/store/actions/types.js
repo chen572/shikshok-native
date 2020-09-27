@@ -8,4 +8,9 @@ const authTypes = {
   onLoginFail: 'ON_LOGIN_FAIL',
 };
 
-export {appTypes, authTypes};
+const otpTypes = {
+  startValidation: 'START_VALIDATION',
+  setValidating: 'SET_VALIDATING',
+};
+
+export {appTypes, authTypes, otpTypes};
