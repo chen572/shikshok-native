@@ -1,11 +1,11 @@
 import {otpTypes} from './types';
 import store from '../store';
 
-const setValidating = (isValidating, err) => ({
+const setValidating = (isValidating, error) => ({
   type: otpTypes.setValidating,
   payload: {
     isValidating,
-    err,
+    error,
   },
 });
 
