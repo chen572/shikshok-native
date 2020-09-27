@@ -1,8 +1,9 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, TouchableOpacity, Image} from 'react-native';
 import styles from './styles';
 import {LoginManager} from 'react-native-fbsdk';
 import {GoogleSignin} from '@react-native-community/google-signin';
+import LoginWithEmail from '../../components/Landing/LoginWithEmail';
 
 GoogleSignin.configure({
   iosClientId:
@@ -10,6 +11,9 @@ GoogleSignin.configure({
 });
 
 function Landing({navigation}) {
+  const [showEmailInput, setShowEmailInput] = useState(false);
+  const [showPhoneInput, setShowPhoneInput] = useState(false);
+
   return (
     <View style={styles.mainContainer}>
       <Text style={styles.titleStyle}>WOW.</Text>
@@ -91,13 +95,14 @@ function Landing({navigation}) {
         </View>
         <View style={styles.loginButtonContainer}>
           <Text style={styles.textStyle}>Or sign up with</Text>
+          <LoginWithEmail
+            navigation={navigation}
+            style={styles}
+            text="Email"
+            showInput={showPhoneInput}
+          />
           <TouchableOpacity
-            onPress={() => navigation.navigate('Home')}
-            style={styles.loginButtons}>
-            <Text style={styles.loginTextStyle}>Email</Text>
-          </TouchableOpacity>
-          <TouchableOpacity
-            onPress={() => navigation.navigate('Home')}
+            onPress={() => setShowPhoneInput(true)}
             style={styles.loginButtons}>
             <Text style={styles.loginTextStyle}>Phone</Text>
           </TouchableOpacity>
