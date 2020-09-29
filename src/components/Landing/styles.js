@@ -44,5 +44,13 @@ export default StyleSheet.create({
   },
   errorMsgStyle: {
     color: 'red',
+    alignSelf: 'center',
+  },
+  errorMsgContainer: {
+    width: '100%',
+    alignSelf: 'center',
+  },
+  errorInputBorder: {
+    borderColor: 'red',
   },
 });

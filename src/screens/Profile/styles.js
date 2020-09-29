@@ -1,6 +1,9 @@
 import { StyleSheet } from 'react-native';
 
 export default StyleSheet.create({
+  safeViewContainer: {
+    flex: 1,
+  },
   mainContainer: {
     flex: 1,
     alignItems: 'center',
