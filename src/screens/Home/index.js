@@ -1,5 +1,5 @@
 import React from 'react';
-import {Dimensions, FlatList, View, StyleSheet} from 'react-native';
+import { Dimensions, FlatList, View, StyleSheet } from 'react-native';
 
 import TopBar from '../../components/Video/TopBar/TopBar';
 import BackgroundVideo from '../../components/Video/BackgroundVideo/BackgroundVideo';
@@ -11,7 +11,7 @@ const videos = [
   'https://tiktok-test1212.s3-eu-west-1.amazonaws.com/nike3.mp4',
 ];
 
-function Home({navigation}) {
+function Home({ navigation }) {
   const videosRef = {};
 
   const _onViewableItemsChanged = (props) => {
@@ -41,7 +41,7 @@ function Home({navigation}) {
         windowSize={5}
         data={videos}
         keyExtractor={(videoUrl) => videoUrl}
-        renderItem={({item}) => (
+        renderItem={({ item }) => (
           <BackgroundVideo
             ref={(ref) => {
               videosRef[item] = ref;

@@ -1,11 +1,11 @@
 import React from 'react';
-import {View, Text, StyleSheet, TouchableOpacity} from 'react-native';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 import ProfileInfoText from './ProfileInfoText';
 
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
-import {faBookmark} from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
+import { faBookmark } from '@fortawesome/free-solid-svg-icons';
 
-function ProfileTopInfo({name, following, followers, likes}) {
+function ProfileTopInfo({ name, following, followers, likes }) {
   return (
     <>
       <View>

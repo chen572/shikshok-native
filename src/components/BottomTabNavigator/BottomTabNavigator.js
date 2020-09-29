@@ -1,5 +1,5 @@
 import React from 'react';
-import {View} from 'react-native';
+import { View } from 'react-native';
 import styles from './styles';
 
 import {
@@ -11,9 +11,9 @@ import {
 import BottomTabIcon from './BottomTabIcon';
 import BottomAddIcon from './BottomAddIcon';
 
-function BottomTabNavigator({navigation, background, colorTitle, colorIcon}) {
+function BottomTabNavigator({ navigation, background, colorTitle, colorIcon }) {
   return (
-    <View style={[styles.bottomTabContainer, {backgroundColor: background}]}>
+    <View style={[styles.bottomTabContainer, { backgroundColor: background }]}>
       <BottomTabIcon
         icon={faHome}
         colorIcon={colorIcon}

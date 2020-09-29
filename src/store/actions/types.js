@@ -10,7 +10,10 @@ const authTypes = {
 
 const otpTypes = {
   startValidation: 'START_VALIDATION',
+  checkValidation: 'CHECK_VALIDATION',
   setValidating: 'SET_VALIDATING',
+  onValidationSuccess: 'ON_VALIDATION_SUCCESS',
+  clearOTP: 'CLEAR_OTP',
 };
 
-export {appTypes, authTypes, otpTypes};
+export { appTypes, authTypes, otpTypes };

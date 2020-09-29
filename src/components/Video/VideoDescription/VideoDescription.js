@@ -1,8 +1,8 @@
 import React from 'react';
-import {TouchableOpacity, Text, View} from 'react-native';
+import { TouchableOpacity, Text, View } from 'react-native';
 import styles from './styles';
 
-function VideoDescription({itemName, description}) {
+function VideoDescription({ itemName, description }) {
   return (
     <View style={styles.videoDescriptionContainer}>
       <TouchableOpacity>

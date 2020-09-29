@@ -1,8 +1,8 @@
 import React from 'react';
-import {View, TouchableOpacity, Image} from 'react-native';
+import { View, TouchableOpacity, Image } from 'react-native';
 import styles from './styles';
 
-import {FontAwesomeIcon} from '@fortawesome/react-native-fontawesome';
+import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import {
   faPlus,
   faHeart,
