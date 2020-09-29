@@ -13,6 +13,7 @@ const otpTypes = {
   checkValidation: 'CHECK_VALIDATION',
   setValidating: 'SET_VALIDATING',
   onValidationSuccess: 'ON_VALIDATION_SUCCESS',
+  onValidationError: 'ON_VALIDATION_ERROR',
   clearOTP: 'CLEAR_OTP',
 };
 

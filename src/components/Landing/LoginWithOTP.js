@@ -14,6 +14,7 @@ import { Input } from './Input';
 import {
   checkValidation,
   clearOTP,
+  onValidationError,
   startValidation,
 } from '../../store/actions';
 import { Spinner } from './Spinner';
@@ -54,6 +55,19 @@ function LoginWithOTP({
     setTo('');
     dispatch(clearOTP());
     setVisible(false);
+  };
+
+  const handleSubmit = () => {
+    if (isValidating) {
+      return dispatch(checkValidation(to, code));
+    }
+    const regex = isTypeEmail
+      ? /^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/
+      : /(\+972\d{9})/;
+    if (!regex.test(to)) {
+      return dispatch(onValidationError());
+    }
+    return dispatch(startValidation(to, channel));
   };
 
   useEffect(() => {
@@ -113,11 +127,7 @@ function LoginWithOTP({
                   }
                 />
                 <Button
-                  onPress={() =>
-                    isValidating
-                      ? dispatch(checkValidation(to, code))
-                      : dispatch(startValidation(to, channel))
-                  }
+                  onPress={handleSubmit}
                   mode="contained"
                   color="black"
                   style={styles.buttonStyle}>

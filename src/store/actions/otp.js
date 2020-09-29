@@ -6,6 +6,10 @@ const clearOTP = () => ({
   type: otpTypes.clearOTP,
 });
 
+const onValidationError = () => ({
+  type: otpTypes.onValidationError,
+});
+
 const setValidating = (isValidating, error) => ({
   type: otpTypes.setValidating,
   payload: {
@@ -30,7 +34,7 @@ const startValidation = (to, channel) => ({
     },
     onStart: () => store.dispatch(loginUser()),
     onSuccess: () => store.dispatch(setValidating(true, false)),
-    onError: () => store.dispatch(setValidating(false, true)),
+    onError: () => store.dispatch(onValidationError()),
   },
 });
 
@@ -45,7 +49,8 @@ const checkValidation = (to, verification_code) => ({
     },
     onStart: () => store.dispatch(loginUser(true)),
     onSuccess: () => store.dispatch(onValidationSuccess()),
+    onError: () => store.dispatch(onValidationError()),
   },
 });
 
-export { startValidation, checkValidation, clearOTP };
+export { startValidation, checkValidation, clearOTP, onValidationError };
