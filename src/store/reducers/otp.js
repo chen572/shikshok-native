@@ -16,6 +16,8 @@ export default handleActions(
       state.setIn(['success'], true).setIn(['isValidating'], false),
     [otpTypes.clearOTP]: (state) =>
       state.setIn(['error'], false).setIn(['isValidating'], false),
+    [otpTypes.onValidationError]: (state) =>
+      state.setIn(['isValidating'], false).setIn(['error'], true),
   },
   initialState,
 );
