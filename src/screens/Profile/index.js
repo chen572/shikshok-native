@@ -1,12 +1,12 @@
 import React from 'react';
-import {ScrollView, SafeAreaView, Image} from 'react-native';
+import { ScrollView, SafeAreaView, Image } from 'react-native';
 import BottomTabNavigator from '../../components/BottomTabNavigator/BottomTabNavigator';
 import ProfileTopInfo from '../../components/ProfileTopInfo/ProfileTopInfo';
 import styles from './styles';
 
-function Profile({navigation}) {
+function Profile({ navigation }) {
   return (
-    <SafeAreaView style={{flex: 1}}>
+    <SafeAreaView style={{ flex: 1 }}>
       <ScrollView>
         <Image
           style={styles.imageStyle}

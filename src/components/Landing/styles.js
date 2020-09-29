@@ -22,13 +22,27 @@ export default StyleSheet.create({
     height: 50,
     justifyContent: 'center',
   },
-  inputStyle: {
-    margin: 10,
-    width: '80%',
-    height: 60,
-    lineHeight: 50,
-  },
   titleStyle: {
     marginBottom: 10,
+  },
+  spinnerStyle: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  inputStyle: {
+    color: '#000',
+    paddingRight: 5,
+    paddingLeft: 5,
+    lineHeight: 23,
+    fontSize: 18,
+    flex: 1,
+  },
+  containerStyle: {
+    height: 50,
+    width: '100%',
+  },
+  errorMsgStyle: {
+    color: 'red',
   },
 });

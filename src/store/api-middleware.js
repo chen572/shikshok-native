@@ -1,6 +1,6 @@
 import axios from 'axios';
 import store from './store';
-import {appTypes} from './actions/types';
+import { appTypes } from './actions/types';
 
 export default () => (next) => async (action) => {
   if (!action.api) {
@@ -8,6 +8,7 @@ export default () => (next) => async (action) => {
   }
 
   const {
+    onStart,
     onSuccess,
     onError,
     actionName,
@@ -17,18 +18,22 @@ export default () => (next) => async (action) => {
 
   const stateBeforeAction = store.getState();
 
+  if (onStart) {
+    onStart();
+  }
+
   if (!onSuccess) {
     next(action);
   }
 
   try {
     const {
-      data: {success, data},
+      data: { success, data },
     } = await axios({
       ...requestConfig,
       method,
       timeout: 300000,
-      baseURL: '/api/v1',
+      baseURL: 'https://9e6efbdce7be.ngrok.io/api/v1',
     });
 
     if (!success) {
@@ -41,6 +46,6 @@ export default () => (next) => async (action) => {
     if (typeof onError === 'function') {
       return onError(e);
     }
-    store.dispatch({type: appTypes.backToState, state: stateBeforeAction});
+    store.dispatch({ type: appTypes.backToState, state: stateBeforeAction });
   }
 };

@@ -1,6 +1,6 @@
 import React from 'react';
-import {NavigationContainer} from '@react-navigation/native';
-import {createStackNavigator} from '@react-navigation/stack';
+import { NavigationContainer } from '@react-navigation/native';
+import { createStackNavigator } from '@react-navigation/stack';
 
 import Landing from '../screens/Landing';
 import Home from '../screens/Home';
@@ -15,17 +15,17 @@ function Router() {
         <Stack.Screen
           name="Landing"
           component={Landing}
-          options={{header: () => null}}
+          options={{ header: () => null }}
         />
         <Stack.Screen
           name="Home"
           component={Home}
-          options={{header: () => null}}
+          options={{ header: () => null }}
         />
         <Stack.Screen
           name="Profile"
           component={Profile}
-          options={{header: () => null}}
+          options={{ header: () => null }}
         />
       </Stack.Navigator>
     </NavigationContainer>
