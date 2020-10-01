@@ -28,7 +28,7 @@ function BottomTabNavigator({ navigation, background, colorTitle, colorIcon }) {
         title="Search"
         navigation={navigation}
       />
-      <BottomAddIcon />
+      <BottomAddIcon navigation={navigation} />
       <BottomTabIcon
         icon={faInbox}
         colorIcon={colorIcon}

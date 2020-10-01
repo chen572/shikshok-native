@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Dimensions, FlatList, View, StyleSheet } from 'react-native';
 
 import TopBar from '../../components/Video/TopBar/TopBar';
@@ -27,6 +27,14 @@ function Home({ navigation }) {
       }
     });
   };
+
+  useEffect(() => {
+    const unsubscribe = navigation.addListener('blur', () => {
+      Object.values(videosRef).forEach((video) => video.props.pause());
+    });
+    return unsubscribe;
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <View style={styles.mainContainer}>

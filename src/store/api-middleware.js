@@ -33,7 +33,7 @@ export default () => (next) => async (action) => {
       ...requestConfig,
       method,
       timeout: 300000,
-      baseURL: 'https://9e6efbdce7be.ngrok.io/api/v1',
+      baseURL: 'https://cdcace27cc04.ngrok.io/api/v1',
     });
 
     if (!success) {
