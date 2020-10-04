@@ -1,45 +1,38 @@
 import React, { useRef, useState } from 'react';
-import { Pressable, View } from 'react-native';
+import { Pressable, View, Text, Image } from 'react-native';
 import { RNCamera } from 'react-native-camera';
-import { Avatar, Button } from 'react-native-paper';
+import { Avatar, IconButton } from 'react-native-paper';
+
+import useFlash from '../../hooks/useFlash';
+import useCameraDirection from '../../hooks/useCameraDirection';
+import useCameraActions from '../../hooks/useCameraActions';
+
 import styles from './style';
 
 function Camera() {
   const camera = useRef();
   const [video, setVideo] = useState(false);
 
-  const takePicture = async () => {
-    if (camera.current) {
-      const options = { quality: 0.5, base64: true, doNotSave: true };
-      const data = await camera.current.takePictureAsync(options);
-    }
-  };
+  const {
+    flash: { flashIcon, flashValue },
+    setFlashValue,
+  } = useFlash();
+  const {
+    camera: { cameraIcon, cameraValue },
+    setCameraValue,
+  } = useCameraDirection();
 
-  const startVideo = async () => {
-    if (camera.current) {
-      const options = {
-        quality: RNCamera.Constants.VideoQuality['720p'],
-        maxDuration: 5,
-      };
-      camera.current
-        .recordAsync(options)
-        .then((videoObj) => console.log(videoObj.uri));
-    }
-  };
-
-  const endVideo = () => {
-    if (camera.current) {
-      camera.current.stopRecording();
-    }
-  };
+  const { takePicture, startVideo, endVideo, lastImgUri } = useCameraActions(
+    camera.current,
+  );
 
   return (
     <View style={styles.container}>
       <RNCamera
         ref={camera}
         style={styles.preview}
-        type={RNCamera.Constants.Type.back}
-        flashMode={RNCamera.Constants.FlashMode.on}
+        type={RNCamera.Constants.Type[cameraValue]}
+        flashMode={RNCamera.Constants.FlashMode[flashValue]}
         androidCameraPermissionOptions={{
           title: 'Permission to use camera',
           message: 'We need your permission to use your camera',
@@ -54,23 +47,54 @@ function Camera() {
         }}
       />
       <View style={styles.toolbarContainer}>
-        <Pressable
-          onLongPress={() => {
-            setVideo(true);
-            startVideo();
-          }}
-          onPressOut={() => {
-            setVideo(false);
-            endVideo();
-          }}
-          onPress={takePicture}
-          style={styles.capture}>
-          <Avatar.Text
-            size={60}
-            style={video ? styles.video : styles.picture}
+        <View style={styles.galleryButtonContainer}>
+          {!!lastImgUri && (
+            <Image
+              source={{ uri: lastImgUri, width: 60, height: 60 }}
+              style={styles.galleryAvatarImage}
+            />
+          )}
+        </View>
+        <View style={styles.captureContainer}>
+          <Pressable
+            onLongPress={() => {
+              setVideo(true);
+              startVideo();
+            }}
+            onPressOut={() => {
+              setVideo(false);
+              endVideo();
+            }}
+            onPress={takePicture}
+            delayLongPress={250}
+            style={styles.capture}>
+            <Avatar.Text
+              size={60}
+              style={video ? styles.video : styles.picture}
+            />
+          </Pressable>
+          <Text style={styles.captureTextStyle}>
+            Hold for video, tap for photo
+          </Text>
+        </View>
+        <View style={styles.rightToolbarContainer}>
+          <IconButton
+            color="#fff"
+            size={28}
+            icon={cameraIcon}
+            style={styles.cameraChangeIconStyle}
+            onPress={setCameraValue}
+            animated
           />
-        </Pressable>
-        <Button icon="flash"> </Button>
+          <IconButton
+            color="#fff"
+            size={28}
+            icon={flashIcon}
+            style={styles.flashIconStyle}
+            onPress={setFlashValue}
+            animated
+          />
+        </View>
       </View>
     </View>
   );
