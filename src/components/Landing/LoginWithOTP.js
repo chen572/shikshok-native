@@ -133,11 +133,13 @@ function LoginWithOTP({
                   style={styles.buttonStyle}>
                   {pageText.button}
                 </Button>
-                {error && (
-                  <Caption style={styles.errorMsgStyle}>
-                    {pageText.errorMsg}
-                  </Caption>
-                )}
+                <View style={styles.errorMsgContainer}>
+                  {error && (
+                    <Caption style={styles.errorMsgStyle}>
+                      {pageText.errorMsg}
+                    </Caption>
+                  )}
+                </View>
               </View>
             )}
           </Surface>

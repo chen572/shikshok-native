@@ -6,7 +6,7 @@ import styles from './styles';
 
 function Profile({ navigation }) {
   return (
-    <SafeAreaView style={{ flex: 1 }}>
+    <SafeAreaView style={styles.safeViewContainer}>
       <ScrollView>
         <Image
           style={styles.imageStyle}

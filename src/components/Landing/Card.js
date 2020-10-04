@@ -8,7 +8,7 @@ function Card({ children, style }) {
 const styles = StyleSheet.create({
   containerStyle: {
     borderWidth: 1,
-    borderRadius: 2,
+    borderRadius: 5,
     borderColor: '#ddd',
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },

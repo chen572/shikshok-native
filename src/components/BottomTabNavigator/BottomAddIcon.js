@@ -5,9 +5,11 @@ import styles from './styles';
 import { FontAwesomeIcon } from '@fortawesome/react-native-fontawesome';
 import { faPlus } from '@fortawesome/free-solid-svg-icons';
 
-function BottomAddIcon() {
+function BottomAddIcon({ navigation }) {
   return (
-    <TouchableOpacity style={styles.bottomTabIconContainer}>
+    <TouchableOpacity
+      onPress={() => navigation.navigate('Camera')}
+      style={styles.bottomTabIconContainer}>
       <View style={styles.BottomAddIconContainer}>
         <FontAwesomeIcon icon={faPlus} size={20} color="#010101" />
       </View>

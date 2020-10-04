@@ -10,11 +10,10 @@ function Input({
   secureTextEntry,
   keyboardType,
   error,
-  errorMsg,
 }) {
   const { inputStyle, containerStyle } = styles;
   return (
-    <Card style={error && { borderColor: 'red' }}>
+    <Card style={error && styles.errorInputBorder}>
       <View style={containerStyle}>
         <TextInput
           secureTextEntry={secureTextEntry}
