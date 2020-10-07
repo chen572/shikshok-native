@@ -6,6 +6,7 @@ import Landing from '../screens/Landing';
 import Home from '../screens/Home';
 import Profile from '../screens/Profile';
 import Camera from '../screens/Camera';
+import Gallery from '../screens/Gallery';
 
 const Stack = createStackNavigator();
 
@@ -32,6 +33,11 @@ function Router() {
           name="Camera"
           component={Camera}
           options={{ header: () => null }}
+        />
+        <Stack.Screen
+          name="Gallery"
+          component={Gallery}
+          options={{ header: 'Gallery' }}
         />
       </Stack.Navigator>
     </NavigationContainer>

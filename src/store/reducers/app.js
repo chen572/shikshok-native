@@ -1,6 +1,6 @@
 import Immutable from 'seamless-immutable';
 import { handleActions } from 'redux-actions';
-import { appTypes, otpTypes } from '../actions/types';
+import { appTypes, otpTypes, galleryTypes } from '../actions/types';
 
 const initialState = Immutable({
   user: null,
@@ -10,8 +10,13 @@ const initialState = Immutable({
 
 export default handleActions(
   {
-    [appTypes.loginUser]: (state) => state.setIn(['loading'], true),
+    [appTypes.setLoading]: (state, payload) =>
+      state.setIn(['loading'], payload),
     [otpTypes.setValidating]: (state) => state.setIn(['loading'], false),
+    [galleryTypes.onGetPicturesSuccess]: (state) =>
+      state.setIn(['loading'], false),
+    [galleryTypes.onGetPicturesError]: (state) =>
+      state.setIn(['loading'], false),
   },
   initialState,
 );

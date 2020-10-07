@@ -1,6 +1,6 @@
 import axios from 'axios';
-import store from './store';
-import { appTypes } from './actions/types';
+import store from '../store';
+import { appTypes } from '../actions/types';
 
 export default () => (next) => async (action) => {
   if (!action.api) {

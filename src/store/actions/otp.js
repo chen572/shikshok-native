@@ -1,5 +1,5 @@
 import { otpTypes } from './types';
-import { loginUser } from './app';
+import { setLoading } from './app';
 import store from '../store';
 
 const clearOTP = () => ({
@@ -32,7 +32,7 @@ const startValidation = (to, channel) => ({
       channel,
       locale: 'en',
     },
-    onStart: () => store.dispatch(loginUser()),
+    onStart: () => store.dispatch(setLoading(true)),
     onSuccess: () => store.dispatch(setValidating(true, false)),
     onError: () => store.dispatch(onValidationError()),
   },
@@ -47,7 +47,7 @@ const checkValidation = (to, verification_code) => ({
       to,
       verification_code,
     },
-    onStart: () => store.dispatch(loginUser(true)),
+    onStart: () => store.dispatch(setLoading(true)),
     onSuccess: () => store.dispatch(onValidationSuccess()),
     onError: () => store.dispatch(onValidationError()),
   },

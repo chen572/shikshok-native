@@ -1,6 +1,6 @@
 const appTypes = {
   backToState: 'BACK_TO_STATE',
-  loginUser: 'LOGIN_USER',
+  setLoading: 'SET_LOADING',
 };
 
 const authTypes = {
@@ -17,4 +17,11 @@ const otpTypes = {
   clearOTP: 'CLEAR_OTP',
 };
 
-export { appTypes, authTypes, otpTypes };
+const galleryTypes = {
+  getFirstPictures: 'GET_PICTURES',
+  getMorePictures: 'GET_MORE_PICTURES',
+  onGetPicturesSuccess: 'ON_GET_PICTURES_SUCCESS',
+  onGetPicturesError: 'ON_GET_PICTURES_ERROR',
+};
+
+export { appTypes, authTypes, otpTypes, galleryTypes };

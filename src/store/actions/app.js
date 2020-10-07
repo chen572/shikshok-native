@@ -1,7 +1,8 @@
 import { appTypes } from './types';
 
-const loginUser = () => ({
-  type: appTypes.loginUser,
+const setLoading = (payload) => ({
+  type: appTypes.setLoading,
+  payload,
 });
 
-export { loginUser };
+export { setLoading };

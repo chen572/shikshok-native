@@ -7,7 +7,7 @@ import useFlash from '../../hooks/useFlash';
 import useCameraDirection from '../../hooks/useCameraDirection';
 import useCameraActions from '../../hooks/useCameraActions';
 
-import styles from './style';
+import styles from './styles';
 
 function Camera() {
   const camera = useRef();
