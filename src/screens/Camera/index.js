@@ -9,7 +9,7 @@ import useCameraActions from '../../hooks/useCameraActions';
 
 import styles from './styles';
 
-function Camera() {
+function Camera({ navigation }) {
   const camera = useRef();
   const [video, setVideo] = useState(false);
 
@@ -47,14 +47,18 @@ function Camera() {
         }}
       />
       <View style={styles.toolbarContainer}>
-        <View style={styles.galleryButtonContainer}>
+        <Pressable
+          onPress={() => {
+            navigation.navigate('Gallery');
+          }}
+          style={styles.galleryButtonContainer}>
           {!!lastImgUri && (
             <Image
               source={{ uri: lastImgUri, width: 60, height: 60 }}
               style={styles.galleryAvatarImage}
             />
           )}
-        </View>
+        </Pressable>
         <View style={styles.captureContainer}>
           <Pressable
             onLongPress={() => {

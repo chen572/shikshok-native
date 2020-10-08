@@ -19,7 +19,7 @@ export default () => (next) => async (action) => {
   }
 
   try {
-    const { data } = await nativeFunction();
+    const data = await nativeFunction();
 
     if (typeof onSuccess === 'function') {
       return onSuccess(data);

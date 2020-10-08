@@ -8,7 +8,7 @@ const initialState = Immutable({
 
 export default handleActions(
   {
-    [galleryTypes.onGetPicturesSuccess]: (state, payload) =>
+    [galleryTypes.onGetPicturesSuccess]: (state, { payload }) =>
       state.setIn(['pictures'], [...state.pictures, ...payload]),
   },
   initialState,

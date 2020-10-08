@@ -10,7 +10,7 @@ const initialState = Immutable({
 
 export default handleActions(
   {
-    [appTypes.setLoading]: (state, payload) =>
+    [appTypes.setLoading]: (state, { payload }) =>
       state.setIn(['loading'], payload),
     [otpTypes.setValidating]: (state) => state.setIn(['loading'], false),
     [galleryTypes.onGetPicturesSuccess]: (state) =>

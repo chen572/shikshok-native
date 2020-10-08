@@ -1,4 +1,6 @@
 import React from 'react';
+import { Text } from 'react-native';
+
 import { NavigationContainer } from '@react-navigation/native';
 import { createStackNavigator } from '@react-navigation/stack';
 
@@ -37,7 +39,7 @@ function Router() {
         <Stack.Screen
           name="Gallery"
           component={Gallery}
-          options={{ header: 'Gallery' }}
+          options={{ headerTitle: () => <Text>Gallery</Text> }}
         />
       </Stack.Navigator>
     </NavigationContainer>
